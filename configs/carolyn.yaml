@@ -1,6 +1,6 @@
 data:
   data_dir: '/tmp/asdf/'
-  wav_dir: '/tmp/asdf/'
+  wav_dir: ''
   # Compute statistics
   e_mean: 51.87834930419922 # NOTE (Sam): I also overwrote mean/stf for e and f0
   e_std: 26.7847900390625
@@ -11,8 +11,8 @@ data:
   f0_std:  64.79121537277071
   p_min: 111.5131812605976 # Note (Sam): non-zer
   p_max: 594.7204225516587 
-  train_filelist: "/usr/src/app/uberduck_local/ml/filelist.txt"
-  valid_filelist: "/usr/src/app/uberduck_local/ml/filelist.txt"
+  train_filelist: "/tmp/fastspeech_data.txt"
+  valid_filelist: "/tmp/fastspeech_data.txt"
   tts_cleaner_names: ['english_cleaners']
 
 # feature extraction related
