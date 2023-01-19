@@ -209,6 +209,7 @@ class FeedForwardTransformer(torch.nn.Module):
             # print("Before Hs:", hs.shape)  # torch.Size([32, 121, 256])
             d_outs = self.duration_predictor(hs, d_masks)  # (B, Tmax)
             # print("d_outs:", d_outs.shape)      #  torch.Size([32, 121])
+            # print(hs, ds, ilens)
             hs = self.length_regulator(hs, ds, ilens)  # (B, Lmax, adim)
             # print("After Hs:",hs.shape)  #torch.Size([32, 868, 256])
             e_outs = self.energy_predictor(hs, mel_masks)
@@ -296,6 +297,7 @@ class FeedForwardTransformer(torch.nn.Module):
 
         # calculate loss
         before_loss = self.criterion(before_outs, ys)
+        print('loss', before_loss)
         after_loss = 0
         if after_outs is not None:
             after_loss = self.criterion(after_outs, ys)
